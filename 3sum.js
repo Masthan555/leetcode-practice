@@ -1,7 +1,6 @@
 /* Masthan Swamy */
 
 var threeSum = function(nums) {
-    
     let n = nums.length;
     nums.sort((a,b)=> a-b );
 
