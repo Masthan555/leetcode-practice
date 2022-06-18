@@ -89,17 +89,20 @@ let sumOfMaxInSubArrays = (arr)=>{
 
     console.log(prevSmallerValues);
     console.log(nextSmallerValues);
+    // console.log(prevGreaterIndex);
+    // console.log(nextGreaterIndex);
 
     let sum = 0;
     for(let i=0; i<arr.length; i++){
         // let totalSubarraysInWhichCurrentElementIsMaximum = (i-prevGreaterIndex[i]) * (nextGreaterIndex[i]-i);
         // console.log(arr[i], totalSubarraysInWhichCurrentElementIsMaximum);
         // sum += totalSubarraysInWhichCurrentElementIsMaximum * Math.max(prevSmallerValues[i], nextSmallerValues[i]);
-        sum += ((i-prevGreaterIndex[i]) * prevSmallerValues[i]) + ((nextGreaterIndex[i]-i) * nextSmallerValues[i]);
-        console.log(arr[i], ((i-prevGreaterIndex[i]) * prevSmallerValues[i]), ((nextGreaterIndex[i]-i) * nextSmallerValues[i]), sum);
+        sum += ((i-prevGreaterIndex[i]-1) * prevSmallerValues[i]) + ((nextGreaterIndex[i]-i-1) * nextSmallerValues[i]);
+        sum += Math.max(prevSmallerValues[i], nextSmallerValues[i]);
+        console.log(arr[i], ((i-prevGreaterIndex[i]-1) * prevSmallerValues[i]) , ((nextGreaterIndex[i]-i-1) * nextSmallerValues[i]));
     }
 
-    return [prevGreaterIndex, nextGreaterIndex, sum];
+    // return [prevGreaterIndex, nextGreaterIndex, sum];
     return sum;
 }
 
